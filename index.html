@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FrameXTV Streaming</title>
+<meta name="description" content="FrameXTV Streaming — Movies, TV Shows, Anime">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="./" class="site-logo">Frame<span>XTV</span></a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#tv-shows">TV Shows</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="site-main">
+<section class="hero-section">
+    <h1 class="hero-title">FrameXTV Streaming</h1>
+    <p class="hero-subtitle">Movies • TV Shows • Anime — Ek search se sab</p>
+    <div class="search-box-wrap">
+        <input type="text" id="search-input" class="search-input" placeholder="Koi bhi movie, TV show ya anime search karein..." autocomplete="off">
+        <button id="search-btn" class="search-btn">Search</button>
+        <button id="clear-search" class="clear-btn" style="display:none;" title="Clear">✕</button>
+    </div>
+    <p class="search-meta"><span id="result-count">14 titles</span></p>
+</section>
+
+<div class="tabs-nav" id="tabs-nav">
+    <button class="tab-btn active" data-tab="movies">Movies <span>8</span></button>
+    <button class="tab-btn" data-tab="tv">TV Shows <span>3</span></button>
+    <button class="tab-btn" data-tab="anime">Anime <span>3</span></button>
+    <button class="tab-btn" data-tab="all" id="tab-all" style="display:none;">All Results <span id="all-count">0</span></button>
+</div>
+
+<section class="content-section" id="section-all"><div class="movies-grid" id="grid-all"></div></section>
+<section class="content-section active" id="section-movies"><div class="movies-grid" id="grid-movies"><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="550" data-title="fight club" data-display="Fight Club" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" alt="Fight Club" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Fight Club';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Fight Club</h3>
+        <span class="movie-year">1999</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="27205" data-title="inception" data-display="Inception" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/ljsZTbVsrQSqZgWeep2B1Jia2s.jpg" alt="Inception" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Inception';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Inception</h3>
+        <span class="movie-year">2010</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="157336" data-title="interstellar" data-display="Interstellar" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Interstellar';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Interstellar</h3>
+        <span class="movie-year">2014</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="155" data-title="the dark knight" data-display="The Dark Knight" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="The Dark Knight" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=The Dark Knigh';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">The Dark Knight</h3>
+        <span class="movie-year">2008</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="680" data-title="pulp fiction" data-display="Pulp Fiction" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg" alt="Pulp Fiction" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Pulp Fiction';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Pulp Fiction</h3>
+        <span class="movie-year">1994</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="278" data-title="the shawshank redemption" data-display="The Shawshank Redemption" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" alt="The Shawshank Redemption" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=The Shawshank ';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">The Shawshank Redemption</h3>
+        <span class="movie-year">1994</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="238" data-title="the godfather" data-display="The Godfather" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="The Godfather" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=The Godfather';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">The Godfather</h3>
+        <span class="movie-year">1972</span>
+    </div>
+</div><div class="movie-card" data-type="movie" data-cat="movie" data-tmdb="603" data-title="the matrix" data-display="The Matrix" data-seasons="0">
+    <div class="movie-poster">
+        <img src="https://image.tmdb.org/t/p/w342/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="The Matrix" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=The Matrix';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Movie</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">The Matrix</h3>
+        <span class="movie-year">1999</span>
+    </div>
+</div></div></section>
+<section class="content-section" id="section-tv"><div class="movies-grid" id="grid-tv"><div class="movie-card" data-type="tv" data-cat="tv" data-tmdb="1399" data-title="game of thrones" data-display="Game of Thrones" data-seasons="8">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=Game%20of%20Thrones" alt="Game of Thrones" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Game of Throne';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">TV</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Game of Thrones</h3>
+        <span class="movie-year">2011</span>
+    </div>
+</div><div class="movie-card" data-type="tv" data-cat="tv" data-tmdb="66732" data-title="stranger things" data-display="Stranger Things" data-seasons="4">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=Stranger%20Things" alt="Stranger Things" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Stranger Thing';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">TV</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Stranger Things</h3>
+        <span class="movie-year">2016</span>
+    </div>
+</div><div class="movie-card" data-type="tv" data-cat="tv" data-tmdb="1396" data-title="breaking bad" data-display="Breaking Bad" data-seasons="5">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=Breaking%20Bad" alt="Breaking Bad" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Breaking Bad';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">TV</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Breaking Bad</h3>
+        <span class="movie-year">2008</span>
+    </div>
+</div></div></section>
+<section class="content-section" id="section-anime"><div class="movies-grid" id="grid-anime"><div class="movie-card" data-type="tv" data-cat="anime" data-tmdb="85937" data-title="demon slayer" data-display="Demon Slayer" data-seasons="3">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=Demon%20Slayer" alt="Demon Slayer" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Demon Slayer';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Anime</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Demon Slayer</h3>
+        <span class="movie-year">2019</span>
+    </div>
+</div><div class="movie-card" data-type="tv" data-cat="anime" data-tmdb="1429" data-title="attack on titan" data-display="Attack on Titan" data-seasons="4">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=Attack%20on%20Titan" alt="Attack on Titan" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=Attack on Tita';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Anime</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">Attack on Titan</h3>
+        <span class="movie-year">2013</span>
+    </div>
+</div><div class="movie-card" data-type="tv" data-cat="anime" data-tmdb="46261" data-title="one piece" data-display="One Piece" data-seasons="1">
+    <div class="movie-poster">
+        <img src="https://placehold.co/342x513/18181b/3b82f6?text=One%20Piece" alt="One Piece" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/342x513/18181b/3b82f6?text=One Piece';">
+        <div class="play-overlay"><span class="play-icon">▶</span></div>
+        <span class="card-badge">Anime</span>
+    </div>
+    <div class="movie-info">
+        <h3 class="movie-title">One Piece</h3>
+        <span class="movie-year">1999</span>
+    </div>
+</div></div></section>
+
+<p id="no-results" class="no-results" style="display:none;">Koi result nahi mila. Koi aur naam try karein ya TMDB ID daalein.</p>
+
+<div class="player-modal" id="player-modal">
+    <div class="player-modal-content">
+        <div class="player-modal-header">
+            <h2 id="modal-movie-title">Now Playing</h2>
+            <div class="header-actions">
+                <button class="toggle-episodes" id="toggle-episodes" style="display:none;">Episodes</button>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+        </div>
+        <div class="player-layout">
+            <div class="player-main"><div class="framextv-wrapper"><div class="framextv-player-container" id="player-container"></div></div></div>
+            <aside class="episode-sidebar" id="episode-sidebar">
+                <div class="ep-header"><label>Season</label><select id="season-select"></select></div>
+                <div class="ep-list" id="ep-list"></div>
+            </aside>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; <span id="footer-year"></span> FrameXTV. Powered by FrameXTV Theme.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
