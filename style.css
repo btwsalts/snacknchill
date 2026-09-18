@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
 .movie-card:hover .play-overlay{opacity:1}
 .play-icon{width:46px;height:46px;background:#3b82f6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;padding-left:3px}
 .movie-info{padding:9px 11px}
-.movie-title{font-size:.85rem;font-weight:600;color:#fafafa;margin-bottom:2px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.movie-title{font-size:.85rem;font-weight:600;color:#fafafa;margin-bottom:2px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .movie-year{font-size:.72rem;color:#71717a}
 .empty-msg{color:#71717a;grid-column:1/-1}.no-results{text-align:center;color:#71717a;padding:40px;font-size:1.05rem}
 .player-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:12px;backdrop-filter:blur(10px)}
@@ -48,9 +48,9 @@ a{color:inherit;text-decoration:none}
 .toggle-episodes:hover,.toggle-episodes.active{background:#3b82f6;color:#fff;border-color:#3b82f6}
 .close-modal{background:transparent;border:none;color:#a1a1aa;font-size:26px;cursor:pointer;line-height:1;padding:0 4px}.close-modal:hover{color:#fff}
 .player-layout{display:flex;flex:1;min-height:0;overflow:hidden}.player-main{flex:1;min-width:0}
-.player-main .framextv-wrapper{margin:0;border:none;border-radius:0;box-shadow:none}
-.player-main .framextv-player-container{position:relative;width:100%;padding-bottom:56.25%;height:0;background:#000}
-.player-main .framextv-player-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.player-main .snacknchill-wrapper{margin:0;border:none;border-radius:0;box-shadow:none}
+.player-main .snacknchill-player-container{position:relative;width:100%;padding-bottom:56.25%;height:0;background:#000}
+.player-main .snacknchill-player-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .episode-sidebar{width:260px;flex-shrink:0;background:#0c0c0e;border-left:1px solid #27272a;display:none;flex-direction:column;overflow:hidden}
 .episode-sidebar.visible{display:flex}
 .ep-header{padding:12px 14px;border-bottom:1px solid #27272a;display:flex;align-items:center;gap:10px}.ep-header label{color:#a1a1aa;font-size:.8rem}
