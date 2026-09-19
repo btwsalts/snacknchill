@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch — SnacknChill</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="header-container">
+        <a href="index.html" class="brand-logo">
+            <span class="accent-lime">SNACK</span><span class="accent-magenta">N</span>CHILL
+        </a>
+        <div class="header-actions">
+            <div class="search-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="global-search" class="search-input" placeholder="Search movies, TV, anime..." autocomplete="off" onkeydown="if(event.key==='Enter'){window.location.href='index.html';}">
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="watch-page">
+    <div class="watch-top">
+        <a class="watch-back" href="index.html">← Back</a>
+        <h1 class="watch-title" id="watch-title">Now Playing</h1>
+    </div>
+    <div id="watch-empty" class="watch-empty" style="display:none;">
+        <p>No video selected. <a href="index.html">Go home</a></p>
+    </div>
+    <div class="watch-layout" id="watch-layout" style="display:none;">
+        <div class="watch-player-wrap">
+            <div class="framextv-player-container" id="watch-player">
+                <iframe id="watch-iframe"
+                    src=""
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                    allowfullscreen="true"
+                    webkitallowfullscreen="true"
+                    mozallowfullscreen="true"
+                    frameborder="0"
+                    scrolling="no"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-fullscreen"
+                    style="border:0;width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+            </div>
+        </div>
+        <aside class="watch-sidebar" id="watch-sidebar" style="display:none;">
+            <div class="ep-header">
+                <label>Season</label>
+                <select id="watch-season"></select>
+            </div>
+            <div class="ep-list" id="watch-ep-list"></div>
+        </aside>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="brand-logo">
+                <span class="accent-lime">SNACK</span><span class="accent-magenta">N</span>CHILL
+            </a>
+            <p>The ultimate cyberpunk movie & streaming hub crafted for the Gen-Z generation. High energy, zero boring stuff.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Trending Movies</a></li>
+                <li><a href="index.html">Top Anime Drops</a></li>
+                <li><a href="index.html">TV Binge Series</a></li>
+                <li><a href="#">Discord Lounge</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Legal & Vibe</h4>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Stream</a></li>
+                <li><a href="#">DMCA / Copyright</a></li>
+                <li><a href="#">API Documentation</a></li>
+            </ul>
+        </div>
+        <div class="newsletter-box">
+            <h4>Never Miss a Drop ⚡</h4>
+            <p style="color: var(--text-muted); font-size:13px;">Get notified directly on Discord or Email when fresh movies drop.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to SnacknChill Drops!');">
+                <input type="email" class="newsletter-input" placeholder="Your email or handle..." required>
+                <button type="submit" class="newsletter-btn">Join</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SnacknChill. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" style="color: var(--neon-lime);"><i class="fab fa-tiktok"></i></a>
+            <a href="#" style="color: var(--electric-magenta);"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: var(--cyber-purple);"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script>
+(function(){
+    const params = new URLSearchParams(window.location.search);
+    const tmdb = parseInt(params.get('tmdb') || '0', 10);
+    let type = params.get('type') || 'movie';
+    const title = params.get('title') || 'Now Playing';
+    let season = Math.max(1, parseInt(params.get('season') || '1', 10));
+    let episode = Math.max(1, parseInt(params.get('episode') || '1', 10));
+    const seasons = Math.max(1, parseInt(params.get('seasons') || '1', 10));
+
+    if (!['movie','tv','anime'].includes(type)) type = 'movie';
+    const playType = (type === 'tv' || type === 'anime') ? 'tv' : 'movie';
+
+    document.getElementById('watch-title').textContent = title;
+    document.title = title + ' — SnacknChill';
+
+    if (!tmdb) {
+        document.getElementById('watch-empty').style.display = 'block';
+        return;
+    }
+
+    document.getElementById('watch-layout').style.display = 'flex';
+    const iframe = document.getElementById('watch-iframe');
+
+    function buildSrc(s, e) {
+        if (playType === 'tv') return 'https://vidsrc.sbs/embed/tv/' + tmdb + '/' + s + '/' + e;
+        return 'https://vidsrc.sbs/embed/movie/' + tmdb;
+    }
+
+    iframe.src = buildSrc(season, episode);
+
+    // Save to continue watching
+    try {
+        const CW_KEY = 'snc_watch_history';
+        let list = JSON.parse(localStorage.getItem(CW_KEY) || '[]');
+        list = list.filter(x => String(x.tmdb) !== String(tmdb));
+        list.unshift({ tmdb, title, type: playType, seasons, poster: '' });
+        localStorage.setItem(CW_KEY, JSON.stringify(list.slice(0, 20)));
+    } catch(e){}
+
+    if (playType === 'tv') {
+        const sidebar = document.getElementById('watch-sidebar');
+        sidebar.style.display = 'block';
+        const seasonSel = document.getElementById('watch-season');
+        const epList = document.getElementById('watch-ep-list');
+
+        for (let s = 1; s <= seasons; s++) {
+            const opt = document.createElement('option');
+            opt.value = s;
+            opt.textContent = 'Season ' + s;
+            if (s === season) opt.selected = true;
+            seasonSel.appendChild(opt);
+        }
+
+        function renderEps(ep) {
+            epList.innerHTML = '';
+            for (let e = 1; e <= 24; e++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'ep-item' + (e === ep ? ' active' : '');
+                btn.dataset.ep = e;
+                btn.textContent = 'Episode ' + e;
+                btn.addEventListener('click', () => load(season, e));
+                epList.appendChild(btn);
+            }
+        }
+
+        function load(s, e) {
+            season = s;
+            episode = e;
+            iframe.src = buildSrc(s, e);
+            const u = new URL(window.location.href);
+            u.searchParams.set('season', s);
+            u.searchParams.set('episode', e);
+            history.replaceState({}, '', u.toString());
+            epList.querySelectorAll('.ep-item').forEach(btn => {
+                btn.classList.toggle('active', +btn.dataset.ep === e);
+            });
+        }
+
+        seasonSel.addEventListener('change', function(){
+            load(+this.value, 1);
+            renderEps(1);
+        });
+        renderEps(episode);
+    }
+})();
+</script>
+</body>
+</html>
