@@ -284,3 +284,54 @@ It is a good foundation for evolving a static frontend prototype into a larger f
 
 Built by **btwsalts** as a personal web development project.
 
+
+---
+
+## ✦ Interface Showcase
+
+<p align="center">
+<img src="https://image.tmdb.org/t/p/w1280/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" alt="SnacknChill hero" width="100%">
+</p>
+
+<table>
+<tr>
+<td><img src="https://image.tmdb.org/t/p/w780/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" alt="Inception"></td>
+<td><img src="https://image.tmdb.org/t/p/w780/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar"></td>
+</tr>
+</table>
+
+## 🛠️ Stack at a Glance
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Frontend](https://img.shields.io/badge/Frontend-Vanilla%20JS-111111?style=flat-square)
+
+## 🧠 Application Flow
+
+~~~mermaid
+flowchart LR
+A[Search / Filters] --> B[Dynamic Catalog]
+B --> C[Movie / TV / Anime Card]
+C --> D[watch.html]
+D --> E[Playback]
+D --> F[localStorage]
+F --> G[Continue Watching]
+~~~
+
+## 💡 What Makes It Interesting
+
+- No framework required
+- Dynamic content cards generated from data
+- Multiple filter states
+- Query-parameter based watch routing
+- Season and episode navigation
+- Persistent browser history
+- Responsive streaming-style UI
+
+<details>
+<summary><strong>Portfolio talking points</strong></summary>
+
+This project demonstrates core frontend engineering without hiding the implementation behind a framework. It is a good example of DOM manipulation, event-driven UI, URL state, browser storage and external-service integration.
+
+</details>
